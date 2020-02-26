@@ -28,3 +28,36 @@ connection.connect((err) => {
     common.printHeader("Welcome to Bamazon Inventory Managment App!","magenta");
     manageInventory();
 });
+
+function manageInventory() {
+
+    // Prompt user for command selection
+    inquirer.prompt([
+        {
+            name: "command",
+            type: "rawlist",
+            message: "Please select a function",
+            choices: ["View Products for Sale", "View Low Inventory", "Add to Inventory", "Add New Product", "Exit"]
+        }
+    ])
+    .then(function(cmd) {
+        // console.log(cmd);
+        switch (cmd.command) {
+            case "View Products for Sale":
+                viewProducts();
+                break;
+            case "View Low Inventory":
+                viewLowInventory();
+                break;
+            case "Add to Inventory":
+                addInventory();
+                break;
+            case "Add New Product":
+                addProduct();
+                break;
+            case "Exit":
+                exitBamazon();
+                break;
+        }
+    });
+}
