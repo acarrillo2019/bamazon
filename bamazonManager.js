@@ -73,3 +73,16 @@ function viewProducts() {
         manageInventory();
     });
 }
+
+function viewLowInventory() {
+
+    // Query the DB for all items in store with low inventory
+    connection.query(`SELECT * FROM products WHERE stock_quantity < ${lowInventory}`, (err, results) => {
+        if (err) throw err;
+
+        // console.log(chalk.red.bold("\nProducts with Low Inventory"));
+        common.printHeader("Products with Low Inventory", "red");
+        common.displayItems(results,"red", "manager");
+        manageInventory();
+    });
+}
