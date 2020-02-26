@@ -61,3 +61,15 @@ function manageInventory() {
         }
     });
 }
+
+function viewProducts() {
+
+    // Query the DB for all items in store inventory
+    connection.query("SELECT * FROM products", (err, results) => {
+        if (err) throw err;
+
+        common.printHeader("Store Inventory", "magenta");
+        common.displayItems(results, "magenta", "manager");
+        manageInventory();
+    });
+}
