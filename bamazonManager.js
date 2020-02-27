@@ -153,7 +153,18 @@ function addInventory() {
         if (err) throw err;
     
         inquirer.prompt ([
-            
+            {
+                name: "id",
+                type: "input",
+                message: "Enter Product Id",
+                validate: function(num){
+                    // Check if item number is valid
+                    if (results.find(x => x.id === parseInt(num))) {
+                        return true;
+                    }
+                    return false;
+                }
+            },
         ])
         .then(function(res){
            
