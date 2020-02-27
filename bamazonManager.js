@@ -144,3 +144,24 @@ function addProduct() {
         });
     })
 }
+
+function addInventory() {
+    // Increment stock quanity by user entered amount
+
+    // Get the list of product ids
+    connection.query(`SELECT id FROM products`, (err, results) => { 
+        if (err) throw err;
+    
+        inquirer.prompt ([
+            
+        ])
+        .then(function(res){
+           
+
+                    console.log(chalk.green.bold(`\n${results.affectedRows} product updated!\n`));
+                    manageInventory();
+                }
+            );
+        });
+    });
+}
