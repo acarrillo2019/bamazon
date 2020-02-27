@@ -173,7 +173,10 @@ function addInventory() {
             }
         ])
         .then(function(res){
-           
+            connection.query(`UPDATE products SET stock_quantity = stock_quantity+${res.qty} WHERE ?`, [{id: res.id}], 
+
+            function (err,results) {
+                if (err) throw err;
 
                     console.log(chalk.green.bold(`\n${results.affectedRows} product updated!\n`));
                     manageInventory();
