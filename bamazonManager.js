@@ -185,3 +185,9 @@ function addInventory() {
         });
     });
 }
+
+function exitBamazon() {
+
+    console.log(chalk.magenta.bold("\nHave a great day!\n"))
+    connection.end();
+}
