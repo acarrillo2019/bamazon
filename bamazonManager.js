@@ -134,9 +134,10 @@ function addProduct() {
             }   
         ])
         .then(function(response) {
-            
-            
-
+            connection.query("INSERT INTO products SET ?", 
+                [{product_name: response.name, department: response.type, customer_price: response.price, stock_quantity: response.quantity}],
+                (err, results) =>  {
+                    if (err) throw err;
                     console.log(chalk.green.bold(`\n${results.affectedRows} product added!\n`));
                     manageInventory();
             });
