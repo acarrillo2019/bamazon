@@ -102,7 +102,18 @@ function addProduct() {
 
         inquirer.prompt ([
             {
-                
+                name: "name",
+                type: "input",
+                message: "Enter Product Name",
+                validate: function(prod){
+                    // Check if item number is valid, this method returns the object if itemNumber is found
+                    if (prod.length <= maxProdLength) {
+                        return true;
+                    }
+                    console.log(chalk.red.bold('\nProduct name too long'));
+                    return false;
+                }
+            },   
         ])
         .then(function(response) {
             
