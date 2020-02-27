@@ -119,6 +119,12 @@ function addProduct() {
                 type: "rawlist",
                 message: "Select Product Category",
                 choices: choiceArray
+            },
+            {
+                name: "price",
+                type: "input",
+                message: "Enter Customer Price",
+                validate: (num) => {return common.isNumber(num);}
             },   
         ])
         .then(function(response) {
