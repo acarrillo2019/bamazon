@@ -46,6 +46,14 @@ function printHeader(msg, color) {
     console.log(c("**************************************************************************************"));
 
 }
+// ____________________________________________________________________________________
+
+function printMsg (msg, color){
+    let c = chalk.bold.keyword(color);
+    console.log(c(`\n${msg}\n`))
+}
+// ____________________________________________________________________________________
+
 
 
 module.exports.displayItems = displayItems;
