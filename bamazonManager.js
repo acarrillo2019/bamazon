@@ -113,6 +113,12 @@ function addProduct() {
                     console.log(chalk.red.bold('\nProduct name too long'));
                     return false;
                 }
+            },
+            {
+                name: "type" ,
+                type: "rawlist",
+                message: "Select Product Category",
+                choices: choiceArray
             },   
         ])
         .then(function(response) {
