@@ -125,7 +125,13 @@ function addProduct() {
                 type: "input",
                 message: "Enter Customer Price",
                 validate: (num) => {return common.isNumber(num);}
-            },   
+            },
+            {
+                name: "quantity",
+                type: "input",
+                message: "Enter Quantity",
+                validate: (num) => {return common.isNumber(num);}
+            }   
         ])
         .then(function(response) {
             
