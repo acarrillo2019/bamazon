@@ -86,3 +86,31 @@ function viewLowInventory() {
         manageInventory();
     });
 }
+
+function addProduct() {
+    
+    var maxProdLength = 20;
+
+    connection.query(`SELECT department_name FROM departments`, (err, results) => { 
+        if (err) throw err;
+
+        let choiceArray = [];
+
+        for (i=0; i< results.length; i++) {
+            choiceArray.push(results[i].department_name);
+        }
+
+        inquirer.prompt ([
+            {
+                
+        ])
+        .then(function(response) {
+            
+            
+
+                    console.log(chalk.green.bold(`\n${results.affectedRows} product added!\n`));
+                    manageInventory();
+            });
+        });
+    })
+}
