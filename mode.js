@@ -34,6 +34,18 @@ function displayItems(list, color, user) {
 }
 // ____________________________________________________________________________________
 
+function printHeader(msg, color) {
+
+    let c = chalk.bold.keyword(color);
+    let pad = (84 - msg.length)/2;
+    let blank = "";
+    let m = `*${msg.padStart(pad+msg.length)}${blank.padEnd(pad)}*`;
+
+    console.log(c("\n**************************************************************************************"));
+    printMsg(m, color);
+    console.log(c("**************************************************************************************"));
+
+}
 
 
 module.exports.displayItems = displayItems;
