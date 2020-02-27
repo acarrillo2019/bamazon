@@ -165,6 +165,12 @@ function addInventory() {
                     return false;
                 }
             },
+            {
+                name: "qty" ,
+                type: "input",
+                message: "Enter quantity to add to stock",
+                validate: (num) => {return common.isNumber(num);}
+            }
         ])
         .then(function(res){
            
