@@ -54,7 +54,14 @@ function printMsg (msg, color){
 }
 // ____________________________________________________________________________________
 
-
+function isNumber(num){
+    // Ensure value entered is a number.
+    if (isNaN(num) || (/^\s*$/.test(num))){
+        return false;
+    }
+    return true;
+}
+// ____________________________________________________________________________________
 
 module.exports.displayItems = displayItems;
 module.exports.printHeader = printHeader;
