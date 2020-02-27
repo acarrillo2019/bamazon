@@ -5,8 +5,8 @@ var mysql = require("mysql");
 var inquirer = require("inquirer");
 var chalk = require("chalk");
 
-// Common functions used in bamazonCustomer/Manager/Supervisor
-var common = require("./common.js");
+// Functions used in bamazonCustomer/Manager/Supervisor
+var common = require("./mode.js");
 
 var sqlConfig = {
     host: "localhost",
