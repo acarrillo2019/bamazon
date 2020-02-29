@@ -4,7 +4,6 @@ var mysql = require("mysql");
 var inquirer = require("inquirer");
 var chalk = require("chalk");
 
-// Common functions used in bamazonCustomer/Manager/Supervisor
 var common = require("./common.js");
 
 var sqlConfig = {
@@ -15,10 +14,8 @@ var sqlConfig = {
     database: "bamazon_DB"
 };
 
-// create the connection information for the sql database
 var connection = mysql.createConnection(sqlConfig);
 
-// connect to the mysql server and sql database
 connection.connect(function(err) {
     if (err) throw err;
 
@@ -27,7 +24,6 @@ connection.connect(function(err) {
 });
 
 function purchaseItem() {
-    // Query the DB for all items in store inventory
     connection.query("SELECT * FROM products", function(err, results) {
         if (err) throw err;
 
@@ -35,19 +31,12 @@ function purchaseItem() {
 
         var item = 0;
 
-        // Prompt customer to make purchase selection
         inquirer.prompt([
             {
                 name: "itemNumber",
                 type: "input",
                 message: chalk.yellow("Which item would you like to purchase?"),
                 validate: function(num){
-                    // Check if item number is valid, returns object if found, else returns -1 if not found
-                    // Note: 'item' is an object with the specific record if found in the db. Could use the variable 'item'
-                    // to access the values instead of querying the db later in updateInventory. Didn't know if it was best practice
-                    // to pass this variable into the next function, or perform a new query to get the requested record.
-                    // Probably the later, could modify updateInventory to pass the table name into the function, then the function
-                    // would be generic and could be used to udpate inventories in various tables.
                     item = results.find(x => x.id === parseInt(num));
                     if (item) {
                         return true;
@@ -57,10 +46,6 @@ function purchaseItem() {
             }
         ])
         .then(function(ans1) {
-            // Split into two prompt statements. Use the item number from the first response to check if there is sufficient inventory, 
-            // then proceed with purchase. Otherwise, ask customer to enter another amount.
-
-            // Prompt user to select quantity
             inquirer.prompt([
                 {
                     name: "qty",
@@ -81,8 +66,6 @@ function purchaseItem() {
         });
     });
 }
-
-// ____________________________________________________________________________________
 
 function updateInventory(ix, qty) {
     if (qty != 0) {
@@ -114,8 +97,6 @@ function updateInventory(ix, qty) {
         exitBamazon();
     }
 }
-
-// ____________________________________________________________________________________
 
 function exitBamazon() {
 

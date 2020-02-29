@@ -1,20 +1,20 @@
 {
-    "name": "Bamazon",
-    "version": "1.0.0",
-    "description": "Node.js &amp; MySQL application",
-    "main": "index.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/acarrillo2019/bamazon"
-    },
-    "homepage": "https://github.com/acarrillo2019/bamazon#readme",
-    "dependencies": {
-      "chalk": "^2.4.1",
-      "inquirer": "^6.0.0",
-      "mysql": "^2.16.0"
-    }
+  "name": "Bamazon",
+  "version": "1.0.0",
+  "description": "Node.js &amp; MySQL application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acarrillo2019/bamazon"
+  },
+  "homepage": "https://github.com/acarrillo2019/bamazon#readme",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "inquirer": "^6.5.2",
+    "mysql": "^2.16.0",
+    "node": "^13.8.0"
   }
-  
+}
