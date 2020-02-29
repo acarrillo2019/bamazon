@@ -81,3 +81,36 @@ function purchaseItem() {
         });
     });
 }
+
+// ____________________________________________________________________________________
+
+function updateInventory(ix, qty) {
+    if (qty != 0) {
+
+        // Get the item record, need current values to use to update
+        connection.query(
+            "SELECT * FROM products WHERE ?", [{id:ix}],
+            function(err, res1) {
+                if (err) throw err;
+
+                connection.query("UPDATE products SET ? WHERE ?", [{
+                        stock_quantity: (res1[0].stock_quantity - qty), 
+                        product_sales: res1[0].product_sales+(res1[0].customer_price*qty)
+                    }, {
+                        id: ix
+                    }],
+                    function(err, res2) {
+                        if (err) throw err;
+
+                        console.log(chalk`\n{green.bold Thank you for your purchase!} Your total is {magenta $${res1[0].customer_price*qty}.}\n`);
+                        exitBamazon();
+                    }
+                );
+            }
+        );
+    }
+    else {
+        console.log(chalk.cyan(`\nSorry we weren't able to help you today. Come back soon!\n`));
+        exitBamazon();
+    }
+}
