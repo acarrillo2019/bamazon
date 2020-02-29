@@ -21,7 +21,7 @@ var connection = mysql.createConnection(sqlConfig);
 connection.connect(function(err) {
     if (err) throw err;
     
-    common.printHeader("Welcome to Bamazon Supervisor Department Management App","green");
+    common.printHeader("Welcome to Bamazon Department Management Tool","yellow");
     manageDepartments();
 });
 
@@ -66,7 +66,7 @@ function viewSales() {
     (err, results) => {
         if (err) throw err;
 
-        common.printHeader("Product Sales by Department", "green")
+        common.printHeader("Product Sales by Department", "yellow")
         displaySales(results)
         manageDepartments();
     });
@@ -113,8 +113,8 @@ function addDepartment() {
 
 function displaySales(list) {
     
-    console.log(chalk.green("\nID   Department     Total Sales($)  Overhead Costs($)   Total Profit($)"));
-    console.log(chalk.green("-----------------------------------------------------------------------"));
+    console.log(chalk.yellow.bold("\nID   Department     Total Sales($)  Overhead Costs($)   Total Profit($)"));
+    console.log(chalk.yellow.bold("-----------------------------------------------------------------------"));
 
     // Display the sales by department
     for (var i =0; i < list.length; i++) {
@@ -131,6 +131,6 @@ function displaySales(list) {
 
 function exitBamazon() {
 
-    console.log(chalk.green.bold("\nThank you for using Bamazon!\n"))
+    console.log(chalk.yellow.bold("\nThank you for using Bamazon!\n"))
     connection.end();
 }
