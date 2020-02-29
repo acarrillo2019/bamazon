@@ -54,3 +54,22 @@ function manageDepartments() {
         }
     });
 }
+
+function viewSales() {
+
+    connection.query(
+        "SELECT departments.department_id, sales.department_name, sales.total_sales, departments.over_head_costs,"
+        + "(sales.total_sales - departments.over_head_costs) AS total_profit "
+		+ "FROM (SELECT department_name, SUM(product_sales) AS total_sales FROM products "
+        + "RIGHT JOIN departments ON department = department_name GROUP BY department_name) AS sales "
+        + "INNER JOIN departments ON sales.department_name = departments.department_name",
+    
+    (err, results) => {
+        if (err) throw err;
+
+        common.printHeader("Product Sales by Department", "green")
+        displaySales(results)
+        manageDepartments();
+    });
+}
+
