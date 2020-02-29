@@ -26,7 +26,6 @@ connection.connect(function(err) {
 });
 
 // Functions
-// ____________________________________________________________________________________
 
 function manageDepartments() {
 

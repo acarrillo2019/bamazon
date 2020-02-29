@@ -25,7 +25,7 @@ var connection = mysql.createConnection(sqlConfig);
 connection.connect((err) => {
     if (err) throw err;
     
-    common.printHeader("Welcome to Bamazon Inventory Managment App!","magenta");
+    common.printHeader("Welcome to the Bamazon Inventory Managment Tool!","magenta");
     manageInventory();
 });
 
