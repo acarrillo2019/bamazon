@@ -1,10 +1,9 @@
-
 // NPM modules
 var mysql = require("mysql");
 var inquirer = require("inquirer");
 var chalk = require("chalk");
 
-var common = require("./common.js");
+var common = require("./mode.js");
 
 var sqlConfig = {
     host: "localhost",
@@ -19,7 +18,7 @@ var connection = mysql.createConnection(sqlConfig);
 connection.connect(function(err) {
     if (err) throw err;
 
-    common.printHeader("Welcome to Bamazon Tennis Super Store!","blue");
+    common.printHeader("Welcome to Bamazon Online Gaming Store!","blue");
     purchaseItem();
 });
 
@@ -100,6 +99,6 @@ function updateInventory(ix, qty) {
 
 function exitBamazon() {
 
-    console.log(chalk.blue.bold("\nHave a great day!\n"))
+    console.log(chalk.blue.bold("\nThank you for using Bamazon!\n"))
     connection.end();
 }

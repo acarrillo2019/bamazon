@@ -1,8 +1,6 @@
 // Required NPM modules
 var chalk = require("chalk");
 
-// ____________________________________________________________________________________
-
 function displayItems(list, color, user) {
     // Display the inventory
     
@@ -32,7 +30,6 @@ function displayItems(list, color, user) {
     }
     console.log("\n");
 }
-// ____________________________________________________________________________________
 
 function printHeader(msg, color) {
 
@@ -46,13 +43,11 @@ function printHeader(msg, color) {
     console.log(c("**************************************************************************************"));
 
 }
-// ____________________________________________________________________________________
 
 function printMsg (msg, color){
     let c = chalk.bold.keyword(color);
     console.log(c(`\n${msg}\n`))
 }
-// ____________________________________________________________________________________
 
 function isNumber(num){
     // Ensure value entered is a number.
@@ -61,7 +56,6 @@ function isNumber(num){
     }
     return true;
 }
-// ____________________________________________________________________________________
 
 module.exports.displayItems = displayItems;
 module.exports.printHeader = printHeader;

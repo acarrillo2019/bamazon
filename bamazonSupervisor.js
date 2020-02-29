@@ -4,7 +4,7 @@ var inquirer = require("inquirer");
 var chalk = require("chalk");
 
 // Common functions used in bamazonCustomer/Manager/Supervisor
-var common = require("./common.js");
+var common = require("./mode.js");
 
 var sqlConfig = {
     host: "localhost",
@@ -132,6 +132,6 @@ function displaySales(list) {
 
 function exitBamazon() {
 
-    console.log(chalk.green.bold("\nHave a great day!\n"))
+    console.log(chalk.green.bold("\nThank you for using Bamazon!\n"))
     connection.end();
 }

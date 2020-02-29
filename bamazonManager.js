@@ -188,6 +188,6 @@ function addInventory() {
 
 function exitBamazon() {
 
-    console.log(chalk.magenta.bold("\nHave a great day!\n"))
+    console.log(chalk.magenta.bold("\nThank you for using Bamazon!\n"))
     connection.end();
 }
