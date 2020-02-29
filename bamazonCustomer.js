@@ -114,3 +114,11 @@ function updateInventory(ix, qty) {
         exitBamazon();
     }
 }
+
+// ____________________________________________________________________________________
+
+function exitBamazon() {
+
+    console.log(chalk.blue.bold("\nHave a great day!\n"))
+    connection.end();
+}
