@@ -112,3 +112,26 @@ function addDepartment() {
     });
 }
 
+function displaySales(list) {
+    
+    console.log(chalk.green("\nID   Department     Total Sales($)  Overhead Costs($)   Total Profit($)"));
+    console.log(chalk.green("-----------------------------------------------------------------------"));
+
+    // Display the sales by department
+    for (var i =0; i < list.length; i++) {
+        // If value is null, due to no sales for any product in selected department, then set value to over head costs (neg value)
+        if (list[i].total_profit === null){
+            list[i].total_profit = -list[i].over_head_costs;
+        }
+        console.log(`${list[i].department_id.toString().padEnd(4)} ${list[i].department_name.padEnd(18)} `
+            + `${(list[i].total_sales.toFixed(2).toString()).padEnd(15)} `
+            + `${(list[i].over_head_costs.toFixed(2).toString()).padEnd(20)} ${list[i].total_profit.toFixed(2)}`);
+    }
+    console.log("\n");
+}
+
+function exitBamazon() {
+
+    console.log(chalk.green.bold("\nHave a great day!\n"))
+    connection.end();
+}
