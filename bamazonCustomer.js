@@ -18,7 +18,7 @@ var connection = mysql.createConnection(sqlConfig);
 connection.connect(function(err) {
     if (err) throw err;
 
-    common.printHeader("Welcome to Bamazon Online Gaming Store!","blue");
+    common.printHeader("Welcome to Bamazon Online Gaming Store!","yellow");
     purchaseItem();
 });
 
@@ -26,7 +26,7 @@ function purchaseItem() {
     connection.query("SELECT * FROM products", function(err, results) {
         if (err) throw err;
 
-        common.displayItems(results, "blue","customer");
+        common.displayItems(results, "yellow","customer");
 
         var item = 0;
 
@@ -84,7 +84,7 @@ function updateInventory(ix, qty) {
                     function(err, res2) {
                         if (err) throw err;
 
-                        console.log(chalk`\n{green.bold Thank you for your purchase!} Your total is {magenta $${res1[0].customer_price*qty}.}\n`);
+                        console.log(chalk`\n{yellow.bold Thank you for your purchase!} Your total is {green.bold $${res1[0].customer_price*qty}.}\n`);
                         exitBamazon();
                     }
                 );
@@ -92,13 +92,13 @@ function updateInventory(ix, qty) {
         );
     }
     else {
-        console.log(chalk.cyan(`\nSorry we weren't able to help you today. Come back soon!\n`));
+        console.log(chalk.red(`\nSorry we weren't able to help you today. Come back soon!\n`));
         exitBamazon();
     }
 }
 
 function exitBamazon() {
 
-    console.log(chalk.blue.bold("\nThank you for using Bamazon!\n"))
+    console.log(chalk.yellow.bold("\nThank you for using Bamazon Online Market Place!\n"))
     connection.end();
 }

@@ -113,7 +113,7 @@ function addDepartment() {
 
 function displaySales(list) {
     
-    console.log(chalk.yellow.bold("\nID   Department     Total Sales($)  Overhead Costs($)   Total Profit($)"));
+    console.log(chalk.yellow.bold("\nID   Department     Total Sales  Overhead Costs  Total Profit"));
     console.log(chalk.yellow.bold("-----------------------------------------------------------------------"));
 
     // Display the sales by department
@@ -121,7 +121,7 @@ function displaySales(list) {
         // If value is null, due to no sales for any product in selected department, then set value to over head costs (neg value)
         if (list[i].total_profit === null){
             list[i].total_profit = -list[i].over_head_costs;
-        }
+        } else
         console.log(`${list[i].department_id.toString().padEnd(4)} ${list[i].department_name.padEnd(18)} `
             + `${(list[i].total_sales.toFixed(2).toString()).padEnd(15)} `
             + `${(list[i].over_head_costs.toFixed(2).toString()).padEnd(20)} ${list[i].total_profit.toFixed(2)}`);
@@ -131,6 +131,6 @@ function displaySales(list) {
 
 function exitBamazon() {
 
-    console.log(chalk.yellow.bold("\nThank you for using Bamazon!\n"))
+    console.log(chalk.yellow.bold("\nThank you for using Bamazon Online Services!\n"))
     connection.end();
 }

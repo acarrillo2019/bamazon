@@ -25,7 +25,7 @@ var connection = mysql.createConnection(sqlConfig);
 connection.connect((err) => {
     if (err) throw err;
     
-    common.printHeader("Welcome to the Bamazon Inventory Managment Tool!","magenta");
+    common.printHeader("Welcome to the Bamazon Inventory Managment Tool!","yellow");
     manageInventory();
 });
 
@@ -68,8 +68,8 @@ function viewProducts() {
     connection.query("SELECT * FROM products", (err, results) => {
         if (err) throw err;
 
-        common.printHeader("Store Inventory", "magenta");
-        common.displayItems(results, "magenta", "manager");
+        common.printHeader("Store Inventory", "yellow");
+        common.displayItems(results, "yellow", "manager");
         manageInventory();
     });
 }
@@ -138,7 +138,7 @@ function addProduct() {
                 [{product_name: response.name, department: response.type, customer_price: response.price, stock_quantity: response.quantity}],
                 (err, results) =>  {
                     if (err) throw err;
-                    console.log(chalk.green.bold(`\n${results.affectedRows} product added!\n`));
+                    console.log(chalk.yellow.bold(`\n${results.affectedRows} product added!\n`));
                     manageInventory();
             });
         });
@@ -188,6 +188,6 @@ function addInventory() {
 
 function exitBamazon() {
 
-    console.log(chalk.magenta.bold("\nThank you for using Bamazon!\n"))
+    console.log(chalk.yellow.bold("\nThank you for using Bamazon Online Services!\n"))
     connection.end();
 }
