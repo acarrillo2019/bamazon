@@ -24,3 +24,33 @@ connection.connect(function(err) {
     common.printHeader("Welcome to Bamazon Supervisor Department Management App","green");
     manageDepartments();
 });
+
+// Functions
+// ____________________________________________________________________________________
+
+function manageDepartments() {
+
+    // Prompt user for command selection
+    inquirer.prompt([
+        {
+            name: "command",
+            type: "rawlist",
+            message: "Please select a function",
+            choices: ["View Product Sales by Department", "Create New Department", "Exit"]
+        }
+    ])
+    .then(function(cmd) {
+        // console.log(cmd);
+        switch (cmd.command) {
+            case "View Product Sales by Department":
+                viewSales();
+                break;
+            case "Create New Department":
+                addDepartment();
+                break;
+            case "Exit":
+                exitBamazon();
+                break;
+        }
+    });
+}
