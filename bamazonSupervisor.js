@@ -73,3 +73,42 @@ function viewSales() {
     });
 }
 
+function addDepartment() {
+
+    let maxDeptLength = 12;
+
+    inquirer.prompt ([
+        {
+            name: "name",
+            type: "input",
+            message: "Enter New Department Name",
+            validate: function(dept){
+                // Check if item number is valid, this method returns the object if itemNumber is found
+                if (dept.length <= maxDeptLength) {
+                    return true;
+                }
+                console.log(chalk.red.bold('\nDepartment name too long'));
+                return false;
+            }
+        },
+        {
+            name: "costs" ,
+            type: "input",
+            message: "Enter Department Overhead Costs",
+            validate: (num) => {return common.isNumber(num);}
+        }
+    ])
+    .then(function(response) {
+        // Add new department to list
+        connection.query("INSERT INTO departments SET ?", 
+            [{department_name: response.name, over_head_costs: response.costs}],
+            (err, results) =>  {
+
+            if (err) throw err;
+
+            console.log(chalk.green.bold(`\n${results.affectedRows} department added!\n`));
+            manageDepartments();
+        });
+    });
+}
+
