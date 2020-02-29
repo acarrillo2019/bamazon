@@ -14,34 +14,34 @@ CREATE TABLE products(
 );
 
 INSERT INTO products (product_name, department, customer_price, stock_quantity,product_sales)
-VALUES ("Wilson Pro Staff", "Equipment", 219.00, 3, 1670.00);
+VALUES ("Batman: Arkham Knight", "Games", 219.00, 3, 1670.00);
 
 INSERT INTO products (product_name, department, customer_price, stock_quantity,product_sales)
-VALUES ("Babolat Pure Aero", "Equipment", 209.00, 89, 1432.00);
+VALUES ("Super Mario Brothers", "Games", 209.00, 89, 1432.00);
 
 INSERT INTO products (product_name, department, customer_price, stock_quantity,product_sales)
-VALUES ("Prince Textreme", "Equipment", 189.00, 70, 732.00);
+VALUES ("Tetris", "Games", 189.00, 70, 732.00);
 
 INSERT INTO products (product_name, department, customer_price, stock_quantity,product_sales)
-VALUES ("Adidas Skirt", "Apparel", 55.00, 2, 455.00);
+VALUES ("Halo 3", "Games", 55.00, 2, 455.00);
 
 INSERT INTO products (product_name, department, customer_price, stock_quantity,product_sales)
-VALUES ("Nike Shorts", "Apparel", 75.00, 30, 798.00);
+VALUES ("Playstation 4", "Console", 75.00, 30, 798.00);
 
 INSERT INTO products (product_name, department, customer_price, stock_quantity,product_sales)
-VALUES ("Nike Tank", "Apparel", 50.00, 37, 230.00);
+VALUES ("Xbox One", "Console", 50.00, 37, 230.00);
 
 INSERT INTO products (product_name, department, customer_price, stock_quantity,product_sales)
-VALUES ("Adidas Top", "Apparel", 55.00, 57, 852.00);
+VALUES ("Nintendo Switch", "Console", 55.00, 57, 852.00);
 
 INSERT INTO products (product_name, department, customer_price, stock_quantity,product_sales)
-VALUES ("Adidas Ubersonic", "Shoes", 124.95, 28, 1249.00);
+VALUES ("Mario Bros Stickers", "Accessories", 124.95, 28, 1249.00);
 
 INSERT INTO products (product_name, department, customer_price, stock_quantity,product_sales)
-VALUES ("Nike Air Zoom", "Shoes", 140.00, 23, 1085.00);
+VALUES ("Xbox Controller", "Accessories", 140.00, 23, 1085.00);
 
 INSERT INTO products (product_name, department, customer_price, stock_quantity,product_sales)
-VALUES ("Case Tennis Balls", "Equipment", 78.99, 125, 1828.00);
+VALUES ("Tetris", "Games", 78.99, 125, 1828.00);
 
 CREATE TABLE departments(
   department_id INT NOT NULL AUTO_INCREMENT,
@@ -51,10 +51,14 @@ CREATE TABLE departments(
 );
 
 INSERT INTO departments (department_name, over_head_costs)
-VALUES ("Equipment", 500.00);
+VALUES ("Games", 300.00);
 
 INSERT INTO departments (department_name, over_head_costs)
-VALUES ("Apparel", 200.00);
+VALUES ("Console", 500.00);
 
 INSERT INTO departments (department_name, over_head_costs)
-VALUES ("Shoes", 250.00);
+VALUES ("Accessories", 150.00);
+
+SELECT * FROM products;
+
+SELECT * FROM departments;
